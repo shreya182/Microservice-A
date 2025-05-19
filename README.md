@@ -12,13 +12,13 @@ This microservice is accessed via an HTTP GET request. It does **not** rely on s
 Send a GET request to the endpoint: 
 Example code (javascript):
 '''javascript
-async function requestAllProgressData() {
+'async function requestAllProgressData() {
         const userId = "user123"; // or get dynamically if needed
         const response = await fetch(`http://127.0.0.1:5056/api/progress/${userId}`);
         const allGoalsData = await response.json();
         return allGoalsData;
       }
-      
+''' 
 ---
 
 ## How to Receive Data
