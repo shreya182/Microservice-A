@@ -9,33 +9,38 @@ This microservice is accessed via an HTTP GET request. It does **not** rely on s
 3. Receive a JSON response containing savings goal data
    
 ## How to request data:
-Send a 'GET' request** to the following endpoint:
-/api/progress?goalName=<goalName>&currentAmount=<currentAmount>&goalAmount=<goalAmount>
-### Example request: 
-  /api/progress?goalName=Vacation&currentAmount=500&goalAmount=1000
-
-### Query Parameters:
-- `goalName` (string): the name of the savings goal
-- `currentAmount` (number): how much has already been saved
-- `goalAmount` (number): the total savings goal
-
+Send a GET request to the endpoint: 
+Example code (javascript):
+'''javascript
+async function requestAllProgressData() {
+        const userId = "user123"; // or get dynamically if needed
+        const response = await fetch(`http://127.0.0.1:5056/api/progress/${userId}`);
+        const allGoalsData = await response.json();
+        return allGoalsData;
+      }
+      
 ---
 
 ## How to Receive Data
-
 The microservice responds with a **JSON object** containing:
 - the `goalName`
 - the calculated `progressPercentage` as a number between 0 and 100
-
-### Example Response
-{
-  "goalName": "Vacation",
-  "progressPercentage": 50
-}
+Example code (javascript):
+'''javascript
+async function receiveAllProgressData() {
+        try {
+          const data = await requestAllProgressData();
+          data.forEach(goal => {
+            console.log("Goal:", goal.goal_name);
+            console.log("Progress:", goal.progress + "%");
+          });
+        } catch (error) {
+          console.error("Progress Microservice Error:", error.message);
+        }
+      }
 
 <img width="600" alt="Untitled" src="https://github.com/user-attachments/assets/a7f67dc5-190c-4820-849c-5882d27bb42b" />
 
 Notes & Best Practices
-- This microservice is stateless and calculates progress based only on the provided query parameters.
-- Follows RESTful API conventions for clarity and ease of integration.
+- This microservice calculates progress based only on the provided query parameters.
 - For best results, ensure your main dashboard handles the JSON response and renders the progress bar accordingly
