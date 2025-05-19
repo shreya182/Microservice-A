@@ -11,14 +11,8 @@ This microservice is accessed via an HTTP GET request. It does **not** rely on s
 ## How to request data:
 Send a GET request to the endpoint: 
 Example code (javascript):
-'''javascript
-'async function requestAllProgressData() {
-        const userId = "user123"; // or get dynamically if needed
-        const response = await fetch(`http://127.0.0.1:5056/api/progress/${userId}`);
-        const allGoalsData = await response.json();
-        return allGoalsData;
-      }
-''' 
+<img width="613" alt="Screenshot 2025-05-19 at 1 47 20 PM" src="https://github.com/user-attachments/assets/b1241b8f-2329-47b8-a385-2de8b481c874" />
+
 ---
 
 ## How to Receive Data
@@ -26,21 +20,11 @@ The microservice responds with a **JSON object** containing:
 - the `goalName`
 - the calculated `progressPercentage` as a number between 0 and 100
 Example code (javascript):
-'''javascript
-async function receiveAllProgressData() {
-        try {
-          const data = await requestAllProgressData();
-          data.forEach(goal => {
-            console.log("Goal:", goal.goal_name);
-            console.log("Progress:", goal.progress + "%");
-          });
-        } catch (error) {
-          console.error("Progress Microservice Error:", error.message);
-        }
-      }
+<img width="489" alt="Screenshot 2025-05-19 at 1 47 41 PM" src="https://github.com/user-attachments/assets/8572ace2-547c-47f1-bc0f-ca5e44a800d3" />
 
+UML Diagram:
 <img width="600" alt="Untitled" src="https://github.com/user-attachments/assets/a7f67dc5-190c-4820-849c-5882d27bb42b" />
 
-Notes & Best Practices
-- This microservice calculates progress based only on the provided query parameters.
+Notes:
+- This microservice calculates progress based only on the provided query parameters
 - For best results, ensure your main dashboard handles the JSON response and renders the progress bar accordingly
