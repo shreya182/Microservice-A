@@ -14,7 +14,7 @@ Send a 'GET' request** to the following endpoint:
 ### Example request: 
   /api/progress?goalName=Vacation&currentAmount=500&goalAmount=1000
 
-### Query Parameters:**
+### Query Parameters:
 - `goalName` (string): the name of the savings goal
 - `currentAmount` (number): how much has already been saved
 - `goalAmount` (number): the total savings goal
@@ -33,7 +33,7 @@ The microservice responds with a **JSON object** containing:
   "progressPercentage": 50
 }
 
-<img width="1218" alt="Untitled" src="https://github.com/user-attachments/assets/a7f67dc5-190c-4820-849c-5882d27bb42b" />
+<img width="600" alt="Untitled" src="https://github.com/user-attachments/assets/a7f67dc5-190c-4820-849c-5882d27bb42b" />
 
 Notes & Best Practices
 - This microservice is stateless and calculates progress based only on the provided query parameters.
