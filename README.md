@@ -21,7 +21,7 @@ The microservice responds with a **JSON object** containing:
 - the calculated `progressPercentage` as a number between 0 and 100
 Example code (javascript):
 <img width="489" alt="Screenshot 2025-05-19 at 1 47 41 PM" src="https://github.com/user-attachments/assets/8572ace2-547c-47f1-bc0f-ca5e44a800d3" />
-
+---
 UML Diagram:
 
 <img width="600" alt="Untitled" src="https://github.com/user-attachments/assets/a7f67dc5-190c-4820-849c-5882d27bb42b" />
